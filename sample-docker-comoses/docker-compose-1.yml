@@ -3,9 +3,9 @@
 ######################
 # docker compose -f docker-compose-1.yml up
 ######################
-# sample-docker-comoses-foo-1  | I'm running ${COMPOSE_PROJECT_NAME}
+# sample-docker-comoses-foo-1  | I'm in container :)
 
 services:
   foo:
     image: busybox
-    command: echo "I'm running ${COMPOSE_PROJECT_NAME}"
+    command: echo "I'm in container :)"
