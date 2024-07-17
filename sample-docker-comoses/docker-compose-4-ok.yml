@@ -1,0 +1,16 @@
+######################
+# コンテナ内に侵入して作業したい
+######################
+# docker compose -f docker-compose-4-ok.yml up
+######################
+# sample-docker-comoses-foo-1  | / # 
+#
+# ===別ターミナルにて===========================
+# $ docker compose -f docker-compose-4-ok.yml exec foo /bin/sh
+# / # ls
+# bin    dev    etc    home   lib    lib64  proc   root   sys    tmp    usr    var
+
+services:
+  foo:
+    image: busybox
+    tty: true # ★

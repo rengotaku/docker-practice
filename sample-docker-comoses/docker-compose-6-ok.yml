@@ -1,0 +1,29 @@
+######################
+# ファイルをコンテナ内に永続化したい（サービスをまたがるvolumeを定義する）
+######################
+# docker compose -f docker-compose-6-ok.yml up
+######################
+# ...
+# sample-docker-comoses-foo-1  | 1 /tmp/permanent/echo.log
+# ...
+# $ docker compose -f docker-compose-6-ok.yml down
+# ...
+# $ docker compose -f docker-compose-6-ok.yml up  
+# ...
+# sample-docker-comoses-foo-1  | 2 /tmp/permanent/echo.log
+# ...
+# $ docker compose -f docker-compose-6-ok.yml down -v
+# ...
+# $ docker compose -f docker-compose-6-ok.yml up  
+# ...
+# sample-docker-comoses-foo-1  | 1 /tmp/permanent/echo.log
+
+services:
+  foo:
+    image: busybox
+    command: sh -c "touch /tmp/permanent/echo.log && echo add >> /tmp/permanent/echo.log && wc -l /tmp/permanent/echo.log"
+    volumes: # ★
+      - log:/tmp/permanent
+
+volumes:
+  log:

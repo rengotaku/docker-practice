@@ -1,0 +1,16 @@
+######################
+# コンテナ内に侵入して作業したい（コンテナが終了してしまう）
+######################
+# docker compose -f docker-compose-4-ng.yml up
+######################
+#  ✔ Container sample-docker-comoses-foo-1  Recreated                                                 0.1s 
+# Attaching to sample-docker-comoses-foo-1
+# sample-docker-comoses-foo-1 exited with code 0
+#
+# ===別ターミナルにて===========================
+# $ docker compose -f docker-compose-4-ng.yml exec foo /bin/sh
+# service "foo" is not running
+
+services:
+  foo:
+    image: busybox

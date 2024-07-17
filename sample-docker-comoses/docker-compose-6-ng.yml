@@ -1,0 +1,19 @@
+######################
+# ファイルをコンテナ内に永続化したい（コンテナを起動する度に内容がリセットされている）
+######################
+# docker compose -f docker-compose-6-ng.yml up  
+######################
+# ...
+# sample-docker-comoses-foo-1  | 1 /tmp/echo.log
+# sample-docker-comoses-foo-1 exited with code 0
+# $ docker compose -f docker-compose-6-ng.yml down
+# ...
+# $ docker compose -f docker-compose-6-ng.yml up  
+# ...
+# sample-docker-comoses-foo-1  | 1 /tmp/echo.log
+# sample-docker-comoses-foo-1 exited with code 0
+
+services:
+  foo:
+    image: busybox
+    command: sh -c "touch /tmp/echo.log && echo add >> /tmp/echo.log && wc -l /tmp/echo.log"

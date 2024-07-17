@@ -1,0 +1,25 @@
+######################
+# Dockerにローカルファイルをマウントしたい（サービス内にvolumesを定義する）
+######################
+# $ docker compose -f docker-compose-5-ok.yml
+######################
+# ===別ターミナルにて===========================
+# $ docker compose -f docker-compose-5-ok.yml exec foo /bin/sh
+# / # ls -l /tmp/mounted*
+# -rw-r--r--    1 root     root            34 Jul 17 04:39 /tmp/mounted.log
+# 
+# /tmp/mounted_dir:
+# total 4
+# -rw-r--r--    1 root     root            56 Jul 17 04:39 mounted_dir_mount.log
+# / # cat /tmp/mounted.log
+# This is written in `mounted.log`.
+# / # cat /tmp/mounted_dir/mounted_dir_mount.log
+# This is written in `mounted_dir/mounted_dir_mount.log`.
+
+services:
+  foo:
+    image: busybox
+    tty: true
+    volumes: # ★
+      - ./mounted_dir:/tmp/mounted_dir
+      - ./mounted.log:/tmp/mounted.log

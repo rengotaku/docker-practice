@@ -1,0 +1,14 @@
+######################
+# Dockerfileを利用する(environmentを定義しているので正しく出力される)
+######################
+# docker compose -f docker-compose-3-ok.yml up
+######################
+# sample-docker-comoses-foo-1  | I'm running test_app_in_build
+
+services:
+  foo:
+    build:
+      dockerfile: ../dockerfiles/Dockerfile3-ok # ★
+    command: cat /tmp/echo.log
+    environment:
+      COMPOSE_PROJECT_NAME: test_app

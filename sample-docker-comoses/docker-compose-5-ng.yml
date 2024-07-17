@@ -1,0 +1,14 @@
+######################
+# Dockerにローカルファイルをマウントしたい（エラーが起きる）
+######################
+# $ docker compose -f docker-compose-5-ng.yml
+######################
+# service "foo" refers to undefined volume mounted.log: invalid compose project
+
+services:
+  foo:
+    image: busybox
+    tty: true
+    volumes: # ★
+      - mounted_dir:/tmp/mounted_dir
+      - mounted.log:/tmp/mounted.log

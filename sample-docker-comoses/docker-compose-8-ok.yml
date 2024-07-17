@@ -1,0 +1,28 @@
+######################
+# HTTP Serverにアクセスしたい（サーバが立ち上がってからclientコンテナを起動する）
+######################
+# docker compose -f docker-compose-8-ok.yml up
+######################
+# sample-docker-comoses-client-1  | Connecting to server:8000 (192.168.240.2:8000)
+# sample-docker-comoses-client-1  | saving to 'index.html'
+# sample-docker-comoses-client-1  | index.html           100% |********************************|    13  0:00:00 ETA
+# sample-docker-comoses-client-1  | 'index.html' saved
+# sample-docker-comoses-client-1 exited with code 0
+
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: ./dockerfiles/Dockerfile7
+    healthcheck: # ★
+        test: ["CMD", "wget", "-qO-", "http://localhost:8000"]
+        interval: 5s
+        timeout: 10s
+        retries: 5
+
+  client:
+    image: busybox
+    command: wget server:8000
+    depends_on: # ★
+      server:
+        condition: service_healthy

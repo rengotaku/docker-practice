@@ -1,0 +1,11 @@
+# Create build stage based on buster image
+FROM golang:1.22-alpine
+
+WORKDIR /app　
+COPY ./mount_targets /app
+
+ENV CGO_ENABLED=0 \
+    GOOS=linux \
+    GOARCH=amd64
+
+CMD ["go", "run", "main.go"]

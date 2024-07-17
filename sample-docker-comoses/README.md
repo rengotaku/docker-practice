@@ -1,4 +1,4 @@
-# docker-practice
+# Docker compose学習道場
 Docker初心者のために送るステップバイでDockerを動かす道場です。
 
 Docker composeの利用を前提としております。

@@ -1,0 +1,14 @@
+######################
+# Dockerfileを利用する(environmentの定義が有効にならない)
+######################
+# docker compose -f docker-compose-3-ng.yml up
+######################
+# sample-docker-comoses-foo-1  | I'm running 
+
+services:
+  foo:
+    build:
+      dockerfile: ../dockerfiles/Dockerfile3-ng # ★
+    command: cat /tmp/echo.log
+    environment:
+      COMPOSE_PROJECT_NAME: test_app

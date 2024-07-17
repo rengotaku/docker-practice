@@ -1,0 +1,18 @@
+######################
+# HTTP Serverにアクセスしたい（ホスト側からアクセスできない）
+######################
+# docker compose -f docker-compose-8-ng.yml up
+######################
+# sample-docker-comoses-client-1  | Connecting to server:8000 (192.168.240.2:8000)
+# sample-docker-comoses-client-1  | wget: can't connect to remote host (192.168.240.2): Connection refused
+# sample-docker-comoses-client-1 exited with code 1
+
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: ./dockerfiles/Dockerfile7
+
+  client: # ★
+    image: busybox
+    command: wget server:8000
