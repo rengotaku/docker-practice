@@ -3,11 +3,13 @@
 ######################
 # docker compose -f docker-compose-2.yml up
 ######################
-# sample-docker-comoses-foo-1  | I'm running myapp
+# sample-docker-comoses-foo-1  | HOSTNAME=a962641397d5
+# sample-docker-comoses-foo-1  | HOGE_ENV=test_app_test
+# sample-docker-comoses-foo-1  | HOME=/root
 
 services:
   foo:
     image: busybox
-    command: echo "I'm running ${COMPOSE_PROJECT_NAME}"
+    command: env
     environment: # ★
-      COMPOSE_PROJECT_NAME: test_app
+      HOGE_ENV: test_app

@@ -3,7 +3,7 @@
 ######################
 # docker compose -f docker-compose-7-ng.yml up
 ######################
-# ===別ターミナルにて===========================
+# ===別ターミナルにて(5秒くらい待って)===========================
 # $ docker compose -f docker-compose-7-ng.yml exec server wget -nv localhost:8000
 # 2024-07-17 08:45:33 URL:http://localhost:8000/ [13/13] -> "index.html" [2]
 # $ wget -nv localhost:8000
