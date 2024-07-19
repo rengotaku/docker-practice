@@ -9,4 +9,14 @@ $ cd sample-docker-comoses
 $ docker compose -f docker-compose-1.yml up
 ```
 
-※ 各`docker-compose.yml`に実行コマンドと結果を記載しています。
+# 利用環境
+
+```
+$ docker --version
+Docker version 24.0.5, build ced0996
+$ echo "$(sw_vers)\n$(sysctl -n machdep.cpu.brand_string)"
+ProductName:            macOS
+ProductVersion:         13.2.1
+BuildVersion:           22D68
+Apple M2
+```

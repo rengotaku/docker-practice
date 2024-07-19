@@ -1,5 +1,5 @@
 # Create build stage based on buster image
 FROM busybox AS builder
 # ★
-ENV COMPOSE_PROJECT_NAME=test_app_in_build
-RUN echo "I'm running ${COMPOSE_PROJECT_NAME}" > /tmp/echo.log
+ENV HOGE_ENV=test_app_in_build
+RUN echo "I'm running ${HOGE_ENV}" > /tmp/echo.log
