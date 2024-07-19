@@ -1,5 +1,5 @@
 ######################
-# HTTP Serverにアクセスしたい（サーバが立ち上がってからclientコンテナを起動する）
+# 別コンテナ内で起動しているHTTP Serverにアクセスしたい（serverコンテナのサーバ(golang)が立ち上がってからclientコンテナでアクセスを試みる）
 ######################
 # docker compose -f docker-compose-8-ok.yml up
 ######################
